@@ -1,0 +1,18 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Likes Count is:</div>
+    <div class="panel-body">
+    <div>{{likesCount}}</div>
+  </div>
+    <div class="panel-heading">Post Liked By</div>
+  
+  <div class="panel-body">
+      <div *ngFor="let likedby of likes">
+
+          <div>{{likedby}}</div>
+          </div>
+          <p> <button type="button" (click)="close()">Close</button> </p>
+  </div>
+     
+ 
+
