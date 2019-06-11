@@ -1,0 +1,41 @@
+<app-panel-box>
+<span panel-title>{{pageTitle}}</span>
+<span panel-body>
+
+  <table class="table table-bordered"  id="mainTable">
+    <th>Post Title</th>
+    <th>Post Description</th>
+    <th>User</th>
+    <th>Like</th>
+    <th>Comment</th>
+    <th>Add Comment</th>
+    <th>Delete</th>
+    <tr *ngFor="let post of posts; let i=index">
+      <td><a [routerLink]="['/detail',i]">{{post.postTitle}}</a></td>
+      <td>{{post.postDesc}}</td>
+      <td>{{post.user}}</td>
+      <td><button btn btn-primary class={{i}} (click)="inc(i)">{{post.likedBy.includes(user)?"Liked":"Like"}}</button>
+        <br/><br/><button btn btn-primary [routerLink]="['/postList',{ outlets: { likePopUp: [i]}}]" routerLinkActive="active">Liked By</button>
+      <br/>
+     
+    </td>
+      <td class="commentSection"><button btn btn-primary (click)="comment(i)" id={{i}}>Comments</button></td>
+      <td>
+        <input type="text" [(ngModel)]="interpretation[i]" class="form-control"/>
+        <button btn btn-primary (click)="addComment(i)" >Add Comment</button>
+      </td>
+      <td><button btn btn-primary>Delete</button></td>
+    </tr>
+   
+  </table>
+
+  <!-- <br *ngIf="linkClicked"/>
+  <br *ngIf="linkClicked"/>
+    <app-nested-component [post_index]="postIndex" *ngIf="linkClicked"></app-nested-component>
+    
+  -->
+  
+</span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</app-panel-box>
