@@ -1,0 +1,18 @@
+<app-panel-box>
+<span panel-title>{{pageTitle}}</span>
+<span panel-body>
+<table class="table table-bordered">
+  <th>Post Title</th>
+  <th>Post Description</th>
+  <th>Created By</th>
+  <tr *ngIf="post" >
+    <td>{{post.postTitle}}</td> 
+    <td>{{post.postDesc}}</td>
+    <td>{{post.user}}</td>
+    
+    
+  </tr>
+</table>
+</span>
+
+</app-panel-box>
