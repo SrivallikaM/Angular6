@@ -1,0 +1,33 @@
+<app-panel-box>
+<span panel-title>{{pageTitle}}</span>
+<span panel-body>
+
+  <form [formGroup]="userForm">
+    <div class="form-group">
+    <label class="control-label">Post Title</label>
+    <input type="text" class="form-control" formControlName="postTitle" placeholder="Post title"/>
+    <div *ngIf="!userForm.get('postTitle').valid && userForm.get('postTitle').touched">
+    <div class="alert alert-danger" *ngIf="userForm.get('postTitle').errors.required">Please Enter Post Title!</div>
+    <div class="alert alert-danger" *ngIf="userForm.get('postTitle').errors.minlength">Please Enter a valid Post Title!</div>
+  </div>
+  </div>
+
+  <div class="form-group">
+      <label class="control-label">Post Description</label>
+      <input type="text" class="form-control" formControlName="postDesc" placeholder="Post Description"/>
+      <div *ngIf="!userForm.get('postDesc').valid && userForm.get('postDesc').touched">
+      <div class="alert alert-danger" *ngIf="userForm.get('postDesc').errors.required">Please Enter Post Description!</div>
+      <div class="alert alert-danger" *ngIf="userForm.get('postDesc').errors.minlength">Please Enter a valid Post Description!</div>
+    </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid" (click)="submitPost()">Save</button>
+  </form>
+
+
+
+  
+
+</span>
+
+</app-panel-box>
